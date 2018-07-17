@@ -1,13 +1,27 @@
 package br.com.cadastrocitroen.models;
 
 import java.util.Date;
+import java.util.List;
 
-public class Produto {
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class PessoaFisica {
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	
 	private String nome;
 	private String sobrenome;
 	private Date dataNascimento;
 	private long rendaMensal;
+	
+	@ElementCollection
+	private List<ModelosVeiculos> modelosVeiculos;
 	
 	public String getNome() {
 		return nome;
@@ -35,7 +49,7 @@ public class Produto {
 	}
 	@Override
 	public String toString() {
-		return "Produto [nome=" + nome + ", sobrenome=" + sobrenome + ", dataNascimento=" + dataNascimento
+		return "PessoaFisica [nome=" + nome + ", sobrenome=" + sobrenome + ", dataNascimento=" + dataNascimento
 				+ ", rendaMensal=" + rendaMensal + "]";
 	}
 

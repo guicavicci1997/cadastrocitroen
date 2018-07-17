@@ -1,16 +1,19 @@
 package br.com.cadastrocitroen.controller;
 
-import java.util.Date;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.cadastrocitroen.models.Produto;
+import br.com.cadastrocitroen.dao.PessoaFisicaDAO;
+import br.com.cadastrocitroen.models.PessoaFisica;
 
 @Controller
 public class PessoaFisicaController {
+	
+	@Autowired
+	private PessoaFisicaDAO pfDAO;
 
-	@RequestMapping
+	@RequestMapping("/pf/form")
 	public String form() {
 		
 		return "pf/form";
@@ -18,10 +21,11 @@ public class PessoaFisicaController {
 	}
 	
 	@RequestMapping("/pf")
-	public String gravar(Produto produto) {
-		System.out.println(produto);
+	public String gravar(PessoaFisica pf) {
+		System.out.println(pf);
+		pfDAO.gravar(pf);
 			
-		return "ok";
+		return "/pf/ok";
 		
 	}
 }
