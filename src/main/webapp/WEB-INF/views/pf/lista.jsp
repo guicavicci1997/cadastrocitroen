@@ -13,7 +13,7 @@
 
 <h1>Lista de Pessoas Cadastradas</h1>
 
-<div>${sucesso}</div>
+<div>${message}</div>
 
 <table>
     <tr>
