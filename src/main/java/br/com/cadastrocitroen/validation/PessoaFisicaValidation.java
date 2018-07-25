@@ -15,10 +15,9 @@ public class PessoaFisicaValidation implements Validator{
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		PessoaFisica pf = (PessoaFisica) target;
 		System.out.println("Entrando no metodo validates");
-		ValidationUtils.rejectIfEmpty(errors, "nome", "field.required");
-		ValidationUtils.rejectIfEmpty(errors, "sobrenome", "field.required.pf.nome");
+		ValidationUtils.rejectIfEmpty(errors, "nome", "field.required.pessoaFisica.nome");
+		ValidationUtils.rejectIfEmpty(errors, "sobrenome", "field.required.pessoaFisica.sobrenome");
 		
 	}
 

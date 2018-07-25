@@ -1,5 +1,6 @@
 package br.com.cadastrocitroen.models;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class PessoaFisica {
 	
@@ -17,7 +20,9 @@ public class PessoaFisica {
 	
 	private String nome;
 	private String sobrenome;
-	private Date dataNascimento;
+	
+	@DateTimeFormat
+	private Calendar dataNascimento;
 	private long rendaMensal;
 	
 	@ElementCollection
@@ -35,10 +40,10 @@ public class PessoaFisica {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
-	public Date getDataNascimento() {
+	public Calendar getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	public long getRendaMensal() {
