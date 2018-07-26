@@ -11,6 +11,10 @@
 
 <body>
 
+<div id="img_inspired">
+	<img src="assets/images/inspiredbyyou.jpg"/>
+</div>
+
 <h1>Lista de Pessoas Cadastradas</h1>
 
 <div>${message}</div>

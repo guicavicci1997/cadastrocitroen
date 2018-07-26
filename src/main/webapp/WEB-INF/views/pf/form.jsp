@@ -19,7 +19,8 @@
 
 <body>
 
-<form:form action="${s:mvcUrl('PFC#gravar').build()}" method="post" commandName = "pessoaFisica">
+<form:form id = "form_cad" action="${s:mvcUrl('PFC#gravar').build()}" method="post" commandName = "pessoaFisica">
+	<h1>Formulário de cadastro para Teste Drive Citroen</h1>
     <div class ="atb_cadastro">
         <label>Nome</label>
         <form:input path="nome" />
