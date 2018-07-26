@@ -3,20 +3,21 @@ package br.com.cadastrocitroen.conf;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import br.com.cadastrocitroen.controller.HomeController;
-import br.com.cadastrocitroen.dao.PessoaFisicaDAO;
-
+@Configuration
 @EnableWebMvc
-@ComponentScan (basePackageClasses = {HomeController.class, PessoaFisicaDAO.class})
-public class AppWebConfiguration {
+@ComponentScan (basePackages = "br.com.cadastrocitroen")
+public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public InternalResourceViewResolver InternalResourceViewResolver() {
@@ -26,6 +27,10 @@ public class AppWebConfiguration {
 		return resolver;
 		
 	}
+	
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
+    }
 	
 	@Bean
 	public MessageSource messageSource() {

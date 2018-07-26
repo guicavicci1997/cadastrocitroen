@@ -33,7 +33,7 @@ public class PessoaFisicaController {
 	}
 
 	@RequestMapping("/form")
-	public ModelAndView form() {
+	public ModelAndView form(PessoaFisica pf) {
 	ModelAndView modelAndView = new ModelAndView("pf/form");
 	return modelAndView;
 		
@@ -42,7 +42,7 @@ public class PessoaFisicaController {
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView gravar(@Valid PessoaFisica pf, BindingResult result, RedirectAttributes redirectAtrributes) {
 		if(result.hasErrors()) {
-			return form();
+			return form(pf);
 		}
 		System.out.println(pf);
 		

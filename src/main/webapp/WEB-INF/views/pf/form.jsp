@@ -3,11 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<!-- <link rel="stylesheet" type="text/css" href="src/webapp/WEB-INF/admin/css/form.css"> -->
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Cadastro Citroen</title>
+ <link type="text/css" href="<c:url value='/assets/css/form.css' />" rel="stylesheet" />
 </head>
 
 
@@ -15,26 +20,26 @@
 <body>
 
 <form:form action="${s:mvcUrl('PFC#gravar').build()}" method="post" commandName = "pessoaFisica">
-    <div>
+    <div class ="atb_cadastro">
         <label>Nome</label>
-        <input type="text" name="nome" />
+        <form:input path="nome" />
         <form:errors path="nome" />
     </div>
-    <div>
+    <div class ="atb_cadastro">
         <label>Sobrenome</label>
-        <input type="text" name="sobrenome">
+        <form:input path="sobrenome"/>
         <form:errors path="sobrenome" />
         <!--<form:errors path="sobrenome" /> -->
     </div>
-    <div>
+    <div class ="atb_cadastro">
         <label>Data de Nascimento</label>
-        <input type="text" name="dataNascimento" placeholder="yyyy/MM/dd"/>
+        <form:input path="dataNascimento" placeholder="yyyy/MM/dd"/>
     </div>
-    <div>
+    <div class ="atb_cadastro">
         <label>Renda Mensal</label>
-        <input type="text" name="rendaMensal" />
+        <form:input path="rendaMensal" />
     </div>
-    <div> 
+    <div id = "opcoes_carros" class ="atb_cadastro"> 
     	<label>Opções de Carros</label>
         <select name= "carros">
         	<option>C3</option>
